@@ -1,17 +1,20 @@
 - title: Student, Texas Tech University
   from: Aug 2023
   to: May 2024
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  description: Pursuing a Bachelor of Science in Computer Science.
 
-- title: Bucks County Community College
+- title: Student, Bucks County Community College
   from: Aug 2024
   to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  description: Pursuing an Associate of Science in Information Science & Technology.
+
+- title: IT Technician, Shady Brook Farm
+  from: Jun 2023
+  to: Jan 2025
+  description: Providing technical support for all technology related issues.
+
+- title: IT Project Manager, Shady Brook Farm
+  from: Jan 2025
+  to: present
+  description: Planning, managing and executing projects and day to day operations for everything technology. 
+
