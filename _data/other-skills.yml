@@ -1,0 +1,7 @@
+- name: Fusion 360
+  percentage: 75
+  color: info
+
+- name: Autocad
+  percentage: 50
+  color: success
