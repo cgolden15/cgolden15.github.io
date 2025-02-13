@@ -68,4 +68,5 @@ print(print_model)
 
 Both of these sections of code allow us to then go on to model the relationship between our input features and the concrete compressive strength. Eventually after training the models with enough datasets, we can safely do our final calculation and predict the strongest concrete mix ratio. 
 
-**View the full project on [github](https://github.com/cgolden15/concrete-strength/)!**
+<br>
+{% include elements/button.html link="https://github.com/cgolden15/concrete-strength/" text="View full project on GitHub" block=true %}
