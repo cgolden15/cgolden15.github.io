@@ -3,8 +3,8 @@ title               : "Cameron Golden"
 description         : >-
                       I turn caffeine into code and
                       use tabs over spaces.
-baseurl             : "/portfolio-new"            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
-repository          : cgolden15/portfolio-new    # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+baseurl             : "/"            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+repository          : cgolden15/cgolden15.github.io   # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : cgolden15/portfolYOU
 open_new_tab        : false                    # Opens external URLs in new tab (works for posts, projects and navbar only)
 
