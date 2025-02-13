@@ -75,7 +75,7 @@ buymeacoffee:
   enabled: true
   username: goldenn15
   color: "#007bff"
-  message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
+#  message: "Thanks for visiting!"                    # Message to be displayed aside from the button for a few seconds.
   description: "Support me on Buy me a coffee!"
 
 
