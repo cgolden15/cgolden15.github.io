@@ -1,7 +1,7 @@
 ---
-name: Dummy Project
-tools: [Ignore me]
-image: https://www.sketchappsources.com/resources/source-image/coo-app-concept-subgaurav.jpg
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-external_url: https://www.google.com
+name: 3D Printing Guide
+tools: [3D Printing]
+image: https://www.createeducation.com/wp-content/uploads/2017/01/7-Factory-Create-Ultimaker-Setup.jpeg
+description: A basic introductory guide to 3D printing which was created for my high school.
+external_url: https://goldenn.dev/3d-print/
 ---
