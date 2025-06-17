@@ -10,7 +10,7 @@ open_new_tab        : false                    # Opens external URLs in new tab 
 url                 : "https://goldenn.dev"       # The base hostname & protocol for your site
 
 
-### Plugins ###
+### Plugins ### 
 plugins:
   - jemoji
 
