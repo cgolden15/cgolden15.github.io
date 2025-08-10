@@ -6,10 +6,12 @@ color: primary
 description: From Unmanaged Chaos to a Unified Network
 ---
 
-By: *Cameron Golden, <br>
-IT Project Manager, Shady Brook Farm*
+By: Cameron Golden, <br>
+*IT Project Manager, Shady Brook Farm*
 
-Before this year, our “network” was really just a pile of unmanaged switches, a few TP-Link Deco routers acting as access points, and a tangle of Ethernet cables that nobody wanted to touch.  
+Before this year, our “network” was really just a pile of unmanaged switches, a few TP-Link Deco routers acting as access points, and a tangle of Ethernet cables that nobody wanted to touch. 
+
+![Old Server Room](https://raw.githubusercontent.com/cgolden15/assets/refs/heads/main/blog-images/IMG_7760.jpeg)
 
 It worked... in the loosest possible sense that is. But we constantly ran into problems that ate into productivity, lowered profits and annoyed customers:
 
