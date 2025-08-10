@@ -2,7 +2,7 @@
 title: Why We Switched to Ubiquiti
 tags: [Networking, Ubiquiti]
 style: border
-color: primary
+color: green
 description: From Unmanaged Chaos to a Unified Network
 ---
 
