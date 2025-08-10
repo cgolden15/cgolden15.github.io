@@ -11,7 +11,7 @@ By: Cameron Golden, <br>
 
 Before this year, our “network” was really just a pile of unmanaged switches, a few TP-Link Deco routers acting as access points, and a tangle of Ethernet cables that nobody wanted to touch. 
 
-{% include elements/figure.html image="(https://raw.githubusercontent.com/cgolden15/assets/refs/heads/main/blog-images/IMG_7760.jpeg" caption="Our old server room" %}
+{% include elements/figure.html image="https://raw.githubusercontent.com/cgolden15/assets/refs/heads/main/blog-images/IMG_7760.jpeg" caption="Our old server room" %}
 
 It worked... in the loosest possible sense that is. But we constantly ran into problems that ate into productivity, lowered profits and annoyed customers:
 
