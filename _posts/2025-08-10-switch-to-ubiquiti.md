@@ -18,17 +18,17 @@ It worked... in the loosest possible sense that is. But we constantly ran into p
 - Point of sale terminals dropping out mid-transaction.
 - Random slowdowns during peak hours.
 - No way to see which devices were causing trouble.
-- Constant guesswork when troubleshooting — was it the router? the switch? a bad cable?
+- Constant guesswork when troubleshooting, was it the router? the switch? a bad cable?
 
 We’d patch one thing, and another issue would pop up.  
 
-Finally, after one particularly bad day of POS downtime during a busy event, we decided enough was enough. We ripped out the patchwork and replaced it with a full Ubiquiti setup — not for the brand name, but because we needed **visibility, stability, and control**.
+Finally, after one particularly bad day of POS downtime during a busy event, we decided enough was enough. We ripped out the patchwork and replaced it with a full Ubiquiti setup, not for the brand name, but because we needed **visibility, stability, and control**.
 
 ---
 
 ## 1. Visibility Changed Everything
 
-With the **UDM Pro Max** at the core, I can now see exactly what’s happening on the network — live.
+With the **UDM Pro Max** at the core, I can now see exactly what’s happening on the network, live.
 
 - If a point of sale terminal drops, I can see which switch port it’s on, whether it’s reaching the internet, and exactly when the issue occured.
 - I can track bandwidth usage by device, which quickly exposed that a few clients were eating more bandwidth than we thought.
