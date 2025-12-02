@@ -7,7 +7,7 @@ baseurl             : "/"            # Change to empty quotes if you are hosting
 repository          : cgolden15/cgolden15.github.io   # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : cgolden15/portfolYOU
 open_new_tab        : false                    # Opens external URLs in new tab (works for posts, projects and navbar only)
-url                 : "https://goldenn.dev"       # The base hostname & protocol for your site
+url                 : "https://goldenn.dev"       # The base hostname & protocol for your site 
 
 
 ### Plugins ### 
