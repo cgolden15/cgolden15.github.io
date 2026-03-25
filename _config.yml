@@ -5,7 +5,6 @@ description         : >-
                       use tabs over spaces.
 baseurl             : "/"            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : cgolden15/cgolden15.github.io   # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
-remote_theme        : cgolden15/portfolYOU
 open_new_tab        : false                    # Opens external URLs in new tab (works for posts, projects and navbar only)
 url                 : "https://goldenn.dev"       # The base hostname & protocol for your site
 
@@ -73,7 +72,7 @@ analytics:
 ### Buy me a coffee ###
 # See https://www.buymeacoffee.com/
 buymeacoffee:
-  enabled: true
+  enabled: false
   username: goldenn15
   color: "#007bff"
 #  message: "Thanks for visiting!"                    # Message to be displayed aside from the button for a few seconds.
@@ -91,6 +90,7 @@ defaults:
       path: ""
       type: "posts"
     values:
+      layout: "post"
       comments: false                                   # Set to true to enable disqus comments
 
 
