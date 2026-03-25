@@ -1,15 +1,19 @@
 - name: JavaScript
-  percentage: 85
-  color: danger
+  percentage: 87
+  color: primary
 
-- name: Java
-  percentage: 80
-  color:
-
-- name: Python
-  percentage: 70
+- name: PowerShell
+  percentage: 72
   color: info
 
+- name: Python
+  percentage: 79
+  color: success
+
 - name: SQL
-  color: secondary
-  percentage: 30
+  percentage: 62
+  color: warning
+
+- name: Java
+  percentage: 68
+  color: danger
