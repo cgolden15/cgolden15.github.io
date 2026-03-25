@@ -168,6 +168,16 @@ body {
   transform: scaleX(1);
 }
 
+.navbar-toggler {
+  border-color: var(--line);
+  color: var(--brand);
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(61, 224, 255, 0.2);
+}
+
 #theme-toggler {
   border-color: var(--line);
   color: var(--brand);
@@ -529,6 +539,20 @@ body {
   .hero-shell {
     grid-template-columns: 1fr;
     min-height: auto;
+    gap: 1rem;
+  }
+
+  .hero-panel,
+  .hero-card {
+    width: 100%;
+  }
+
+  .hero-title {
+    line-height: 1.02;
+  }
+
+  .hero-title .hero-line {
+    margin-top: 0.75rem;
   }
 
   .navbar-nav {
@@ -537,6 +561,105 @@ body {
 
   .nav-link {
     margin-left: 0;
+    padding: 0.55rem 0.25rem;
+  }
+
+  .nav-link::after {
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: 0.1rem;
+  }
+
+  .site-main {
+    padding-top: 1.35rem;
+    padding-bottom: 1.35rem;
+  }
+
+  .page-shell {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-actions {
+    gap: 0.55rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    min-height: 2.8rem;
+  }
+
+  .hero-card li {
+    gap: 0.45rem;
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    padding-top: 1.1rem !important;
+    padding-bottom: 1.1rem !important;
+  }
+
+  .social {
+    margin-inline: 0.65rem;
+  }
+
+  .fs-button-group {
+    justify-content: stretch;
+  }
+
+  .fs-button-group .fs-button,
+  .fs-button-group .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-panel,
+  .hero-card,
+  .page-shell,
+  .post.card,
+  .project.card,
+  .timeline-body,
+  .search-box,
+  .card,
+  .fs-form {
+    border-radius: 10px;
+  }
+
+  .hero-kicker {
+    font-size: 0.8rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.7rem, 11vw, 2.4rem);
+  }
+
+  .hero-title .hero-line {
+    font-size: clamp(0.92rem, 4.3vw, 1.1rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.96rem;
+  }
+
+  .hero-card li {
+    flex-direction: column;
+    padding: 0.6rem 0;
+  }
+
+  .site-main {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .page-title {
+    margin-bottom: 1rem;
+  }
+
+  .timeline-body .timeline-item .content {
+    padding-right: 0.15rem;
   }
 }
 
