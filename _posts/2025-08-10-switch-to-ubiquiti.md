@@ -9,89 +9,91 @@ description: From Unmanaged Chaos to a Unified Network
 By: Cameron Golden, <br>
 *IT Project Manager, Shady Brook Farm*
 
-Before this year, our “network” was really just a pile of unmanaged switches, a few TP-Link Deco routers acting as access points, and a tangle of Ethernet cables that nobody wanted to touch. 
+For a long time, our "network" was really just patchwork: unmanaged switches, consumer mesh units repurposed as access points, and cabling that had grown organically instead of intentionally.
 
 {% include elements/figure.html image="https://raw.githubusercontent.com/cgolden15/assets/refs/heads/main/blog-images/IMG_7760.jpeg" caption="Our old server room" %}
 
-It worked... in the loosest possible sense that is. But we constantly ran into problems that ate into productivity, lowered profits and annoyed customers:
+It functioned, but not reliably enough for a medium business that depends on uninterrupted transactions and day-to-day operations. We kept running into issues that directly impacted revenue, staff productivity, and customer experience:
 
 - Point of sale terminals dropping out mid-transaction.
-- Random slowdowns during peak hours.
-- No way to see which devices were causing trouble.
-- Constant guesswork when troubleshooting, was it the router? the switch? a bad cable?
+- Random slowdowns during peak periods.
+- No visibility into which device or link was failing.
+- Constant troubleshooting guesswork: router, switch, AP, cabling, or ISP?
 
-We’d patch one thing, and another issue would pop up.  
+We were spending too much time reacting and not enough time preventing problems.
 
-Finally, after one particularly bad day of POS downtime during a busy event, we decided enough was enough. We ripped out the patchwork and replaced it with a full Ubiquiti setup, not for the brand name, but because we needed **visibility, stability, and control**.
-
----
-
-## 1. Visibility Changed Everything
-
-With the **UDM Pro Max** at the core, I can now see exactly what’s happening on the network, live.
-
-- If a point of sale terminal drops, I can see which switch port it’s on, whether it’s reaching the internet, and exactly when the issue occured.
-- I can track bandwidth usage by device, which quickly exposed that a few clients were eating more bandwidth than we thought.
-- Firmware updates are scheduled and controlled, not something that randomly happens(or doesn't happen) unexpectedly.
-
-Before, troubleshooting meant physically chasing cables around the building. Now it’s a few clicks in the UniFi dashboard.
+After one particularly painful day of POS interruptions during a busy event, we made the call to rebuild around Ubiquiti. The goal was not a "new toy" network. The goal was **visibility, stability, and control**.
 
 ---
 
-## 2. The PoE Upgrade Was More Than Convenience
+## 1. Visibility Was the Biggest Win
 
-Our old unmanaged, cheap switches couldn’t power everything, nearly every phone and AP had its own adapter or injector! The server room was a mess, and a single power strip going out could take down several devices.
+With a **UDM Pro Max** at the core, we can see the network in real time instead of guessing.
 
-The **USW Enterprise 48 PoE** switches changed that:
+- If a POS terminal drops, we can trace its path quickly and confirm where the failure is.
+- Bandwidth can be analyzed per client, which made hidden bottlenecks obvious.
+- Firmware updates are planned and controlled, not random events.
 
-- All APs, cameras, and VoIP phones get power directly from the switch.
-- If a device goes offline, I can reboot its port remotely. No more crawling around to unplug things.
-- PoE usage is monitored, so we know when we're at capacity!
-- The switches also let me segment the network, so POS traffic isn’t competing with guest Wi-Fi.
+Before, troubleshooting usually meant physically tracing cables. Now, most diagnosis starts and ends in the UniFi dashboard.
 
 ---
 
-## 3. Wi-Fi That Actually Handles Peak Loads
+## 2. PoE Reduced Risk and Cleanup Overhead
 
-The Deco mesh system is fine for home use, but it wasn’t built for hundreds of simultaneous clients. Our large event days used to crush the network. POS terminals would drop, desktops would slow down, and guests would complain about lag.
+Our previous setup relied on too many injectors and power bricks. That made failure points multiply and made the rack harder to maintain.
 
-We replaced them with a mix of:
+Moving to **USW Enterprise 48 PoE** switches changed operations immediately:
 
-- **U7 Pro Maxs** in high-density areas.
+- APs, cameras, and phones are powered centrally.
+- Ports can be rebooted remotely, which speeds up support.
+- PoE budgets are visible, so capacity planning is proactive.
+- VLAN segmentation is straightforward, keeping POS isolated from guest traffic.
+
+---
+
+## 3. Wi-Fi Finally Handles Real-World Load
+
+Consumer mesh hardware is not built for high-density business traffic. On busy days, we used to see dropped POS sessions, sluggish office connectivity, and poor guest Wi-Fi performance.
+
+We redesigned coverage with purpose-built AP tiers:
+
+- **U7 Pro Max** units in high-density zones.
 - **U7 Lites** in offices and small spaces.
 - **E7 Campus APs** for the event field.
 
-The difference was immediate: POS terminals stayed connected all day, office staff could keep working and guests could still get a stable signal.
+The difference was immediate and measurable: more stable transactions, fewer help tickets, and better consistency for both staff and guests.
 
 ---
 
-## 4. Stable Long-Range Links
+## 4. Long-Range Links Became Dependable
 
-Our old solution for connecting outbuildings was… also Decos, just placed in windows, near doors and on ceilings in hopes of getting a good signal. Predictably, they’d lose connection with the sligtest interference.
+Outbuilding connectivity used to rely on improvised placement and luck. It worked until weather, interference, or distance exposed it.
 
-Now we use:
+We replaced that with dedicated point-to-point and bridge hardware:
 
 - **LiteBeam 5ACs** for medium-distance links.
 - **UBB and UBB XGS** for higher capacity, critical connections.
 
-They’re weather-resistant, stable, and have held up in conditions that used to break our connections completely.
+These links are weather-resistant, purpose-built, and far more stable under the conditions that previously caused outages.
 
 ---
 
-## 5. Impact on the Point of Sale System
+## 5. POS Reliability Improved the Most
 
-Before Ubiquiti, our POS downtime was unpredictable, sometimes it would happen twice in an hour, sometimes not at all. Now, it’s been months since we’ve had a single POS disconnect.  
+For a medium business, POS reliability is non-negotiable. Before the rebuild, outages were unpredictable and expensive.
 
-Even better, when there’s an issue (like the ISP hiccuping), we can confirm it instantly instead of guessing whether it’s a switch, cable, or AP.
+After moving to the new stack, POS disconnects dropped dramatically. Equally important, when something does degrade, we can identify whether it is local infrastructure or an upstream provider issue in minutes.
 
 ---
 
-## 6. It’s Not Magic, But It’s Manageable
+## 6. Not Perfect, But Finally Manageable
 
-The biggest change isn’t just better hardware — it’s that the network is now **something we can actually manage**:
+The biggest outcome is not just "faster internet." It is operational control. The network is now **manageable**:
 
 - VLANs keep POS, staff devices, and guest Wi-Fi separate.
-- One interface controls everything.
-- We know when something’s wrong before users report it.
+- A single control plane handles monitoring and configuration.
+- Issues are often detected before users escalate them.
 
-There are still trade-offs — firmware updates need to be timed carefully, the UniFi controller can struggle with topology mapping and client identification, but compared to where we started, it’s night and day.
+There are still tradeoffs. Firmware timing matters. Topology views are not always perfect. Client identification can occasionally be noisy.
+
+But for a medium business, this transition has been worth it. We moved from reactive firefighting to proactive operations, and that change impacts everything from checkout reliability to staff efficiency.
