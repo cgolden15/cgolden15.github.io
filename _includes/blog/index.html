@@ -1,0 +1,22 @@
+<div class="card-group mt-2">
+  {% for post in site.posts %}
+  <div class="col-lg-6 my-3 reveal-up">
+    <a href="{{ post.url | relative_url }}" class="post card border border-{{ post.color | default: 'info' }}">
+      <div class="card-body text-themed">
+        <h3 class="card-title">{{ post.title }}</h3>
+        <p class="card-text">
+          {% for tag in post.tags %}
+          <span class="badge badge-{{ post.color | default: 'info' }}">{{ tag }}</span>
+          {% endfor %}
+        </p>
+        {% if post.description %}
+        <p class="card-text">{{ post.description }}</p>
+        {% endif %}
+      </div>
+      <div class="card-footer text-themed">
+        {{ post.date | date: '%d %B %Y' }}
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>

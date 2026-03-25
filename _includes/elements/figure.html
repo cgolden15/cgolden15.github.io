@@ -1,0 +1,6 @@
+<figure class="my-4 text-center">
+  <img src="{{ include.image }}" alt="{{ include.caption | default: 'Figure' }}" class="img-fluid">
+  {% if include.caption %}
+  <figcaption class="small text-muted mt-2">{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>

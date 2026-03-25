@@ -1,0 +1,26 @@
+<div class="card-columns m-3 mt-5">
+  {% assign sorted_projects = site.projects | sort: 'name' %}
+  {% for project in sorted_projects %}
+  {% assign project_link = project.external_url | default: project.url %}
+  <div class="reveal-up">
+    <a href="{{ project_link }}" class="project card text-themed" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>
+      {% if project.image %}
+      <img class="card-img-top" src="{{ project.image }}" alt="{{ project.name }}">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ project.name }}</h5>
+        {% if project.description %}
+        <p class="card-text">{{ project.description }}</p>
+        {% endif %}
+        {% if project.tools %}
+        <p class="card-text">
+          {% for tool in project.tools %}
+          <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
+          {% endfor %}
+        </p>
+        {% endif %}
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>

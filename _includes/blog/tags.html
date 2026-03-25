@@ -1,0 +1,20 @@
+{% assign sorted_tags = site.tags | sort %}
+
+<div class="page-shell">
+  <p class="mono">Browse posts by tag.</p>
+
+  {% for tag in sorted_tags %}
+  <section class="mt-4">
+    <h2 id="{{ tag[0] | slugify }}">#{{ tag[0] }}</h2>
+    <ul class="list-group mt-2">
+      {% assign posts = tag[1] | sort: 'date' | reverse %}
+      {% for post in posts %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="mono text-muted">{{ post.date | date: '%Y-%m-%d' }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
