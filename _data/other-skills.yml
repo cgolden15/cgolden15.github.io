@@ -1,7 +1,19 @@
-- name: Fusion 360
-  percentage: 75
+- name: IT Project Management
+  percentage: 91
+  color: primary
+
+- name: Network Administration (VLANs, Wi-Fi, Etc.)
+  percentage: 88
   color: info
 
-- name: Autocad
-  percentage: 50
+- name: Systems Administration (Multi OS)
+  percentage: 84
   color: success
+
+- name: Endpoint Support and Troubleshooting
+  percentage: 89
+  color: warning
+
+- name: Documentation and SOP Development
+  percentage: 82
+  color: danger
