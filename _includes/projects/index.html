@@ -1,4 +1,4 @@
-<div class="card-columns m-3 mt-5">
+<div class="projects-grid m-3 mt-5">
   {% assign sorted_projects = site.projects | sort: 'name' %}
   {% for project in sorted_projects %}
   {% assign project_link = project.external_url | default: project.url %}
