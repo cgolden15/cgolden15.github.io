@@ -532,13 +532,15 @@ body {
   color: #041423 !important;
 }
 
-.btn-lg {
-  color: #041423 !important;
-}
-
 .btn-outline-info {
   border-color: var(--line);
   color: var(--brand);
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:focus,
+.btn-outline-info:active {
+  color: var(--brand) !important;
 }
 
 .timeline-body {
