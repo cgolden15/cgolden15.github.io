@@ -519,10 +519,21 @@ body {
 
 .btn-info,
 .fs-button {
-  color: #041423;
+  color: #041423 !important;
   border: none;
   background-image: linear-gradient(100deg, var(--brand), var(--brand-2));
   font-weight: 700;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active {
+  color: #041423 !important;
+}
+
+.btn-lg {
+  color: #041423 !important;
 }
 
 .btn-outline-info {
