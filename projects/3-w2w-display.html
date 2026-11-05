@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>W2W Shift Display — Cameron Golden</title>
+<meta name="description" content="LAN-facing site that fetches shift API data and displays it cleanly." />
+<meta name="theme-color" content="#040508" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+<noscript><style>.reveal { opacity: 1; transform: none; } body { cursor: auto; }</style></noscript>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4E78S8KN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4E78S8KN3');
+</script>
+</head>
+<body class="sub">
+
+<div id="cursor-ring"></div>
+<div id="cursor"></div>
+<canvas id="bg"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="logo"><a href="/"><b>CAMERON GOLDEN</b><span class="reg">®</span></a></div>
+  <div class="nav-right">
+    <a class="pill" href="/projects/">PROJECTS</a>
+    <a class="pill" href="/#sec-contact">LET'S TALK</a>
+  </div>
+</nav>
+
+<header class="sub-head">
+  <div class="eyebrow">Project 04</div>
+  <h1>W2W Shift Display</h1>
+  <p class="sum">LAN-facing site that fetches shift API data and displays it cleanly.</p>
+  <p class="status">Role: <b>Technical Lead &amp; Developer</b></p>
+  <ul class="tags"><li>NodeJS</li><li>APIs</li></ul>
+</header>
+
+<article class="prose">
+<h2>Project Overview</h2>
+<p>I architected and deployed a localized, high-availability web platform to provide real-time visibility into operational staffing. The <strong>w2w-display</strong> system serves as a central &quot;command center&quot; for high-traffic retail and event environments, pulling live scheduling data into a high-visibility dashboard.</p>
+<h2>The Problem</h2>
+<p>In complex operational settings like Shady Brook Farm, staff schedules are dynamic and often decentralized. Relying on individual mobile logins for schedule checks created communication bottlenecks and significant administrative overhead for management. There was a critical need for a &quot;glanceable&quot; source of truth that remained operational even during external network instability.</p>
+<h2>Technical Implementation</h2>
+<p>The solution is a full-stack application built with <strong>Node.js</strong> and <strong>Express</strong>, designed to run as a persistent background service on a local area network.</p>
+<img src="/img/projects/w2w-display.png" alt="W2W shift display dashboard" loading="lazy" /><h3>Backend: API Orchestration &amp; Middleware</h3>
+<p>The backend utilizes the <strong>WhenToWork API</strong> to pull live shift data. I implemented logic to sanitize this data and serve it via a local REST endpoint, ensuring the frontend only processes the most relevant, time-sensitive information.</p>
+<pre><code><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>);
+<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>();
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);
+
+<span class="hljs-comment">// Middleware to serve static files from the public directory</span>
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(path.<span class="hljs-title function_">join</span>(__dirname, <span class="hljs-string">&#x27;public&#x27;</span>)));
+
+<span class="hljs-comment">// Local API endpoint for shift data</span>
+<span class="hljs-comment">// This abstracts the third-party API complexity away from the client</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/api/shifts&#x27;</span>, <span class="hljs-title function_">async</span> (req, res) =&gt; {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-comment">// Fetch logic for WhenToWork data would reside here</span>
+        <span class="hljs-keyword">const</span> shiftData = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetchShiftsFromAPI</span>(); 
+        res.<span class="hljs-title function_">status</span>(<span class="hljs-number">200</span>).<span class="hljs-title function_">json</span>(shiftData);
+    } <span class="hljs-keyword">catch</span> (error) {
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Data Retrieval Error:&#x27;</span>, error);
+        res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;Internal Server Error&#x27;</span>);
+    }
+});
+
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">PORT</span> = process.<span class="hljs-property">env</span>.<span class="hljs-property">PORT</span> || <span class="hljs-number">3000</span>;
+app.<span class="hljs-title function_">listen</span>(<span class="hljs-variable constant_">PORT</span>, <span class="hljs-string">&#x27;0.0.0.0&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Server initialized on port <span class="hljs-subst">${PORT}</span>`</span>);
+});</code></pre>
+<h3>Frontend: High-Visibility UI/UX</h3>
+<p>The frontend was engineered for clarity in high-traffic environments. I utilized a combination of <strong>JavaScript</strong>, <strong>CSS Flexbox</strong>, and <strong>HTML</strong> to create a responsive grid that categories staff by department (e.g., Cashiers, Retail, Food).</p>
+<ul>
+<li><strong>Persistent Updates:</strong> Implemented a fetch-loop to refresh shift data at regular intervals without requiring a page reload.</li>
+<li><strong>Responsive Design:</strong> Used CSS media queries to ensure the dashboard remains readable on various display sizes, from small kiosks to large overhead monitors.</li>
+</ul>
+<pre><code><span class="hljs-comment">/* Department-specific color coding for rapid identification */</span>
+<span class="hljs-selector-class">.column-cashiers</span> { <span class="hljs-attribute">border-top</span>: <span class="hljs-number">10px</span> solid <span class="hljs-number">#ff0000</span>; }
+<span class="hljs-selector-class">.column-retail</span> { <span class="hljs-attribute">border-top</span>: <span class="hljs-number">10px</span> solid <span class="hljs-number">#9b59b6</span>; }
+
+<span class="hljs-selector-class">.shift-card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">flex-direction</span>: column;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.5rem</span>;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ddd</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+}</code></pre>
+<h2>Project Management &amp; Business Impact</h2>
+<ul>
+<li><strong>End-to-End Ownership:</strong> Managed the entire project lifecycle, including initial requirements gathering, software development, local network configuration, and physical hardware deployment.</li>
+<li><strong>Operational Efficiency:</strong> Reduced &quot;status-check&quot; inquiries to management by providing a public-facing, real-time staffing dashboard.</li>
+<li><strong>System Resilience:</strong> By hosting the application on a local server, I ensured that critical staffing visibility remains active even if the property&#39;s external internet connection experiences downtime.</li>
+<li><strong>Scalable Documentation:</strong> Authored a comprehensive README and installation guide to allow for seamless maintenance and redeployment by other IT staff members.</li>
+</ul>
+<h2>Core Competencies</h2>
+<ul>
+<li><strong>Technical Stack:</strong> Node.js, Express, JavaScript (ES6+), REST APIs, CSS Grid/Flexbox.</li>
+<li><strong>Systems:</strong> Linux (Kali/Debian), Git/Version Control, Local Network Management.</li>
+<li><strong>Soft Skills:</strong> Project Lifecycle Management, Requirements Analysis, Technical Documentation.</li>
+</ul>
+<hr>
+<p>*full source code available at: <a href="https://github.com/cgolden15/w2w-display">github.com/cgolden15/w2w-display*</a></p>
+</article>
+
+<div class="pager">
+  <a href="/projects/4-signalos"><span class="d">← Previous</span><span class="t">SignalOS Digital Signage</span></a>
+  <a href="/projects/1-concrete-strength"><span class="d">Next →</span><span class="t">Concrete Strength Predictions</span></a>
+</div>
+
+<footer>
+  <div class="sig">Cameron Golden · <b>goldenn.dev</b></div>
+  <div class="sig">© <span id="yr"></span> · Built with Three.js + GSAP</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/scene.js"></script>
+<script src="/js/scroll.js"></script>
+<script src="/js/animations.js"></script>
+<script src="/js/cursor.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

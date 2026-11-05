@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Cameron Golden</title>
+<meta name="description" content="Selected projects by Cameron Golden: infrastructure, automation, and custom business tooling." />
+<meta name="theme-color" content="#040508" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+<noscript><style>.reveal { opacity: 1; transform: none; } body { cursor: auto; }</style></noscript>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4E78S8KN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4E78S8KN3');
+</script>
+</head>
+<body class="sub">
+
+<div id="cursor-ring"></div>
+<div id="cursor"></div>
+<canvas id="bg"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="logo"><a href="/"><b>CAMERON GOLDEN</b><span class="reg">®</span></a></div>
+  <div class="nav-right">
+    <a class="pill" href="/projects/">PROJECTS</a>
+    <a class="pill" href="/#sec-contact">LET'S TALK</a>
+  </div>
+</nav>
+
+<header class="sub-head">
+  <div class="eyebrow">Selected Projects</div>
+  <h1>Built for real operations.</h1>
+  <p class="sum">Infrastructure, automation, and custom tooling, from the edge to the analytics layer.</p>
+</header>
+
+<main class="cases">
+  <a class="case reveal" href="/projects/1-concrete-strength">
+    <span class="case-media"><img src="/img/projects/concrete-rfr.png" alt="Concrete Strength Predictions" loading="lazy" /></span>
+    <div>
+      <div class="case-no">01</div>
+      <h2>Concrete Strength Predictions</h2>
+      <p>Predicting the strength of concrete based on mix ratio using RFR models through Sklearn.</p>
+      <ul class="tags"><li>Python</li><li>Scikit-Learn</li></ul>
+      <div class="case-go">Read the write-up <span class="arrow">→</span></div>
+    </div>
+  </a>
+  <a class="case reveal" href="/projects/2-daily-shopify-pos-sales-report">
+    <span class="case-media"><img src="/img/projects/pos-report.png" alt="Daily Shopify POS Sales Report" loading="lazy" /></span>
+    <div>
+      <div class="case-no">02</div>
+      <h2>Daily Shopify POS Sales Report</h2>
+      <p>Automated Shopify POS exports into heatmapped daily sales analytics with executive-ready summaries.</p>
+      <ul class="tags"><li>Google Apps Script</li><li>JavaScript</li><li>ShopifyQL</li><li>Google Sheets</li></ul>
+      <div class="case-go">Read the write-up <span class="arrow">→</span></div>
+    </div>
+  </a>
+  <a class="case reveal" href="/projects/4-signalos">
+    <span class="case-media"><img src="/img/projects/signalos.png" alt="SignalOS Digital Signage" loading="lazy" /></span>
+    <div>
+      <div class="case-no">03 · In development</div>
+      <h2>SignalOS Digital Signage</h2>
+      <p>Open-source digital signage side project inspired by Screenly/Anthias, built as an active learning platform.</p>
+      <ul class="tags"><li>TypeScript</li><li>React</li><li>Fastify</li><li>WebSockets</li><li>SQLite</li><li>Python</li><li>Raspberry Pi</li></ul>
+      <div class="case-go">Read the write-up <span class="arrow">→</span></div>
+    </div>
+  </a>
+  <a class="case reveal" href="/projects/3-w2w-display">
+    <span class="case-media"><img src="/img/projects/w2w-display.png" alt="W2W Shift Display" loading="lazy" /></span>
+    <div>
+      <div class="case-no">04</div>
+      <h2>W2W Shift Display</h2>
+      <p>LAN-facing site that fetches shift API data and displays it cleanly.</p>
+      <ul class="tags"><li>NodeJS</li><li>APIs</li></ul>
+      <div class="case-go">Read the write-up <span class="arrow">→</span></div>
+    </div>
+  </a>
+  <div class="case reveal">
+    <span class="case-media blank"><span>n8n</span></span>
+    <div>
+      <div class="case-no">05</div>
+      <h2>n8n Automation Suite</h2>
+      <ul class="tags"><li>n8n</li><li>Google APIs</li><li>Shopify</li></ul>
+      <div class="case-go muted">Write-up coming soon</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sig">Cameron Golden · <b>goldenn.dev</b></div>
+  <div class="sig">© <span id="yr"></span> · Built with Three.js + GSAP</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/scene.js"></script>
+<script src="/js/scroll.js"></script>
+<script src="/js/animations.js"></script>
+<script src="/js/cursor.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

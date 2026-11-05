@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concrete Strength Predictions — Cameron Golden</title>
+<meta name="description" content="Predicting the strength of concrete based on mix ratio using RFR models through Sklearn." />
+<meta name="theme-color" content="#040508" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+<noscript><style>.reveal { opacity: 1; transform: none; } body { cursor: auto; }</style></noscript>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4E78S8KN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4E78S8KN3');
+</script>
+</head>
+<body class="sub">
+
+<div id="cursor-ring"></div>
+<div id="cursor"></div>
+<canvas id="bg"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="logo"><a href="/"><b>CAMERON GOLDEN</b><span class="reg">®</span></a></div>
+  <div class="nav-right">
+    <a class="pill" href="/projects/">PROJECTS</a>
+    <a class="pill" href="/#sec-contact">LET'S TALK</a>
+  </div>
+</nav>
+
+<header class="sub-head">
+  <div class="eyebrow">Project 01</div>
+  <h1>Concrete Strength Predictions</h1>
+  <p class="sum">Predicting the strength of concrete based on mix ratio using RFR models through Sklearn.</p>
+  <ul class="tags"><li>Python</li><li>Scikit-Learn</li></ul>
+</header>
+
+<article class="prose">
+<h2>Project Description</h2>
+<p>For my freshman year Computational Thinking and Data Science(ENGR 1330) final, we had to take a given set of data about concrete strength based on mix ratio and create an python program that could predict the strength of other mixtures, created by the user. To do this, we used a variety of libraries such as <a href="https://pandas.pydata.org">Pandas</a>, <a href="https://matplotlib.org">matplotlib</a>, <a href="https://seaborn.pydata.org/#">SeaBorn</a>, <a href="https://scikit-learn.org/stable/">Sklearn</a> and more, to build RFR models and analyze their results to calculate the most optimal concrete mix ratio.  </p>
+<h2>Project Excerpts</h2>
+<p>To predict and model our data, we used a RFR Model style, which displays its deviation from our expected values. To do this, we implemented the following code.</p>
+<pre><code><span class="hljs-comment"># Create a RandomForestRegressor model with 100 estimators</span>
+rfr0 = RandomForestRegressor(n_estimators=<span class="hljs-number">100</span>)
+
+<span class="hljs-comment"># Train the model on the training data</span>
+rfr0.fit(x_train, y_train)
+
+<span class="hljs-comment"># Use the trained model to predict y values for the test set</span>
+y_pred_rfr0 = rfr0.predict(x_test)
+
+<span class="hljs-comment"># Print evaluation metrics for the model</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;model\t\t\t\t RMSE \t\t MSE \t\t MAE \t\t R2&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;&quot;RandomForestRegressor \t {:.2f} \t\t {:.2f} \t\t {:.2f} \t\t {:.2f}&quot;&quot;&quot;</span>.<span class="hljs-built_in">format</span>(
+    np.sqrt(mean_squared_error(y_test, y_pred_rfr0)), mean_squared_error(y_test, y_pred_rfr0),
+    mean_absolute_error(y_test, y_pred_rfr0), r2_score(y_test, y_pred_rfr0)))
+
+<span class="hljs-comment"># Create a scatter plot comparing true and predicted values</span>
+plt.scatter(y_test, y_pred_rfr0)
+plt.plot([y_test.<span class="hljs-built_in">min</span>(), y_test.<span class="hljs-built_in">max</span>()], [y_test.<span class="hljs-built_in">min</span>(), y_test.<span class="hljs-built_in">max</span>()], <span class="hljs-string">&#x27;k--&#x27;</span>, lw=<span class="hljs-number">2</span>)
+plt.xlabel(<span class="hljs-string">&quot;predicted&quot;</span>)
+plt.ylabel(<span class="hljs-string">&quot;true&quot;</span>)
+plt.title(<span class="hljs-string">&quot;Random Forest Regressor&quot;</span>)
+
+<span class="hljs-comment"># Display the plot</span>
+plt.show()</code></pre>
+<blockquote>
+<p>Which returns:</p>
+</blockquote>
+<p><img src="/img/projects/concrete-rfr.png" alt="Random forest regressor: predicted vs. true values" loading="lazy" /></p>
+<p>While this may not look like much, this gave us a good baseline of our data for the next step:</p>
+<p>Creating an Ordinary Least Square(OLS) regression model for each of our 4 tests is rather simple. To do this we created the following code.</p>
+<pre><code>
+x1 = df_1[[<span class="hljs-string">&#x27;BlastFurnaceSlag&#x27;</span>,<span class="hljs-string">&#x27;Cement&#x27;</span>,<span class="hljs-string">&#x27;FlyAsh&#x27;</span>,<span class="hljs-string">&#x27;coarseaggregate&#x27;</span>,<span class="hljs-string">&#x27;FineAggregate&#x27;</span>,<span class="hljs-string">&#x27;water&#x27;</span>,<span class="hljs-string">&#x27;superplasticizer&#x27;</span>,<span class="hljs-string">&#x27;age&#x27;</span>]]
+y1 = df_1[<span class="hljs-string">&#x27;Cement&#x27;</span>]
+
+regr = linear_model.LinearRegression()
+regr.fit(x1,y1)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Intercept&quot; \n&#x27;</span>,regr.intercept_)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Coefficiens: \n&#x27;</span>, regr.coef_)
+
+new_water = <span class="hljs-number">2.75</span>
+new_age = <span class="hljs-number">5.3</span>
+x= sm.add_constant(x1)
+
+model = sm.OLS(y1,x1).fit()
+<span class="hljs-built_in">print</span>(print_model)</code></pre>
+<blockquote>
+<p>Which returns:</p>
+</blockquote>
+<p><img src="/img/projects/concrete-ols.png" alt="OLS regression model output" loading="lazy" /></p>
+<p>Both of these sections of code allow us to then go on to model the relationship between our input features and the concrete compressive strength. Eventually after training the models with enough datasets, we can safely do our final calculation and predict the strongest concrete mix ratio.</p>
+<a class="repo-link" href="https://github.com/cgolden15/concrete-strength"><span>View on GitHub</span><span>→</span></a>
+</article>
+
+<div class="pager">
+  <a href="/projects/3-w2w-display"><span class="d">← Previous</span><span class="t">W2W Shift Display</span></a>
+  <a href="/projects/2-daily-shopify-pos-sales-report"><span class="d">Next →</span><span class="t">Daily Shopify POS Sales Report</span></a>
+</div>
+
+<footer>
+  <div class="sig">Cameron Golden · <b>goldenn.dev</b></div>
+  <div class="sig">© <span id="yr"></span> · Built with Three.js + GSAP</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/scene.js"></script>
+<script src="/js/scroll.js"></script>
+<script src="/js/animations.js"></script>
+<script src="/js/cursor.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

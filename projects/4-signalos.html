@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SignalOS Digital Signage — Cameron Golden</title>
+<meta name="description" content="Open-source digital signage side project inspired by Screenly/Anthias, built as an active learning platform." />
+<meta name="theme-color" content="#040508" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+<noscript><style>.reveal { opacity: 1; transform: none; } body { cursor: auto; }</style></noscript>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4E78S8KN3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4E78S8KN3');
+</script>
+</head>
+<body class="sub">
+
+<div id="cursor-ring"></div>
+<div id="cursor"></div>
+<canvas id="bg"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="logo"><a href="/"><b>CAMERON GOLDEN</b><span class="reg">®</span></a></div>
+  <div class="nav-right">
+    <a class="pill" href="/projects/">PROJECTS</a>
+    <a class="pill" href="/#sec-contact">LET'S TALK</a>
+  </div>
+</nav>
+
+<header class="sub-head">
+  <div class="eyebrow">Project 03</div>
+  <h1>SignalOS Digital Signage</h1>
+  <p class="sum">Open-source digital signage side project inspired by Screenly/Anthias, built as an active learning platform.</p>
+  <p class="status">Role: <b>Creator &amp; Developer</b></p>
+  <p class="status">Status: <b>In development</b></p>
+  <ul class="tags"><li>TypeScript</li><li>React</li><li>Fastify</li><li>WebSockets</li><li>SQLite</li><li>Python</li><li>Raspberry Pi</li></ul>
+</header>
+
+<article class="prose">
+<h2>Status</h2>
+<p>SignalOS is an active side project and is still in development (beta).</p>
+<h2>Why I Built It</h2>
+<p>SignalOS is inspired by the ideas behind Screenly/Anthias, but built as my own self-hosted platform to experiment, learn, and iterate quickly. This project is helping me deepen my understanding of real-world system design, full-stack architecture, and device orchestration.</p>
+<h2>Open Source</h2>
+<p>SignalOS is totally open source, and the code is developed in public:</p>
+<ul>
+<li><a href="https://github.com/cgolden15/Signal-OS">https://github.com/cgolden15/Signal-OS</a></li>
+</ul>
+<h2>Project Overview</h2>
+<p>SignalOS is a locally hosted digital signage platform with a server/dashboard/player architecture:</p>
+<ul>
+<li><strong>Server</strong>: API, WebSocket communication, scheduling, and persistence.</li>
+<li><strong>Dashboard</strong>: Browser-based admin UI for screens, zones, assets, playlists, schedules, and users.</li>
+<li><strong>Pi Agent</strong>: Raspberry Pi display client that connects to the server and plays assigned media.</li>
+</ul>
+<h2>Current Development Snapshot</h2>
+<h3>Completed in beta</h3>
+<ul>
+<li>Core REST API and realtime messaging</li>
+<li>Asset upload and storage flow</li>
+<li>Playlist and schedule management</li>
+<li>Screen registration and approval flow</li>
+<li>Role-based user handling</li>
+</ul>
+<h3>Still in development</h3>
+<ul>
+<li>Advanced scheduling features</li>
+<li>Enhanced transitions/effects</li>
+<li>Improved health monitoring and reporting</li>
+<li>Bulk operations and stronger permission controls</li>
+</ul>
+<h2>Technical Notes</h2>
+<pre><code><span class="hljs-comment">// Dashboard refreshes live data on an interval</span>
+<span class="hljs-keyword">const</span> queryClient = <span class="hljs-keyword">new</span> <span class="hljs-title class_">QueryClient</span>({
+  <span class="hljs-attr">defaultOptions</span>: { <span class="hljs-attr">queries</span>: { <span class="hljs-attr">refetchInterval</span>: <span class="hljs-number">5000</span> } },
+});</code></pre>
+<pre><code><span class="hljs-comment"># Pi agent keeps live state and communicates with the player layer</span>
+current_status  = <span class="hljs-string">&quot;idle&quot;</span>
+is_paused       = <span class="hljs-literal">False</span>
+playlist_task   = <span class="hljs-literal">None</span>
+player_clients  = <span class="hljs-built_in">set</span>()</code></pre>
+<pre><code><span class="hljs-comment">// Server tracks display heartbeat + status for operational visibility</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">HeartbeatMessage</span> {
+  <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;heartbeat&quot;</span>;
+  <span class="hljs-attr">screen_id</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">status</span>: <span class="hljs-string">&quot;idle&quot;</span> | <span class="hljs-string">&quot;playing&quot;</span> | <span class="hljs-string">&quot;error&quot;</span>;
+  <span class="hljs-attr">asset_id</span>?: <span class="hljs-built_in">string</span>;
+}</code></pre>
+<h2>What I am Learning Through This Project</h2>
+<ul>
+<li>Designing reliable communication between UI, API, and edge clients</li>
+<li>Managing mixed-language services (TypeScript + Python)</li>
+<li>Building maintainable scheduling and state-management patterns</li>
+<li>Shipping features in an iterative open-source workflow</li>
+</ul>
+<a class="repo-link" href="https://github.com/cgolden15/Signal-OS"><span>View on GitHub</span><span>→</span></a>
+</article>
+
+<div class="pager">
+  <a href="/projects/2-daily-shopify-pos-sales-report"><span class="d">← Previous</span><span class="t">Daily Shopify POS Sales Report</span></a>
+  <a href="/projects/3-w2w-display"><span class="d">Next →</span><span class="t">W2W Shift Display</span></a>
+</div>
+
+<footer>
+  <div class="sig">Cameron Golden · <b>goldenn.dev</b></div>
+  <div class="sig">© <span id="yr"></span> · Built with Three.js + GSAP</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/scene.js"></script>
+<script src="/js/scroll.js"></script>
+<script src="/js/animations.js"></script>
+<script src="/js/cursor.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>
