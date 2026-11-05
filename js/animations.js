@@ -2,6 +2,7 @@
 
 if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
   if (lenis) ScrollTrigger.scrollerProxy(document.body, {});
 
   /* Generic scroll reveals */
@@ -15,14 +16,13 @@ if (window.gsap && window.ScrollTrigger) {
     });
   });
 
-  /* Marquee — pinned horizontal scrub */
+  /* Marquee — horizontal scrub; CSS sticky holds it in place */
   const track = document.getElementById("marqueeTrack");
   const words = gsap.utils.toArray(".mw");
   if (track) ScrollTrigger.create({
     trigger: "#sec-marquee",
     start: "top top",
-    end: "+=150%",
-    pin: true,
+    end: "bottom bottom",
     scrub: 1,
     onUpdate(self) {
       const p = self.progress;

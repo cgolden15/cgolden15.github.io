@@ -2,7 +2,7 @@
 
 const canvas = document.getElementById("bg");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, IS_TOUCH ? 1.5 : 2));
 renderer.setClearColor(0x040508, 1);
 
 const scene = new THREE.Scene();
@@ -16,8 +16,11 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(0, 0, 7);
 
 function sizeRenderer() {
-  renderer.setSize(innerWidth, innerHeight);
-  camera.aspect = innerWidth / innerHeight;
+  // CSS sets the canvas size, which stays fixed as a mobile address bar moves
+  const w = canvas.clientWidth;
+  const h = canvas.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
   camera.updateProjectionMatrix();
 }
 sizeRenderer();

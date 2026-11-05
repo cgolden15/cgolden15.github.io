@@ -29,6 +29,7 @@ body {
   overflow-x: hidden;
 }
 body {
+  overflow-x: clip;
   cursor: none;
 }
 a {
@@ -119,6 +120,10 @@ a {
   body {
     cursor: auto;
   }
+  nav.shrink {
+    background: rgba(4, 5, 8, 0.85);
+    backdrop-filter: none;
+  }
   #cursor,
   #cursor-ring {
     display: none;
@@ -131,6 +136,7 @@ a {
   inset: 0;
   width: 100vw;
   height: 100vh;
+  height: 100lvh;
   z-index: 0;
 }
 .vignette {
@@ -290,9 +296,9 @@ section {
   z-index: 10;
 }
 .hero-stage {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100vh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -404,6 +410,16 @@ section {
   }
 }
 
+@media (max-width: 760px) {
+  .scroll-cue {
+    left: clamp(1.2rem, 5vw, 4rem);
+    transform: none;
+  }
+  .hero-badge .t {
+    max-width: 170px;
+  }
+}
+
 /* ===== About ===== */
 .about {
   min-height: 100vh;
@@ -472,11 +488,17 @@ section {
 
 /* ===== Marquee (pinned horizontal scrub) ===== */
 .marquee {
+  height: 250vh;
+  padding: 0;
+}
+.marquee-stage {
+  position: sticky;
+  top: 0;
   height: 100vh;
+  height: 100svh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 0;
 }
 .marquee-track {
   display: flex;
