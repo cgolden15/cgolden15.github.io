@@ -1,0 +1,6 @@
+# Cloudflare Pages runs `bundle exec jekyll build`. The site is plain static
+# files, so Jekyll only copies them to _site.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
