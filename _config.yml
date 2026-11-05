@@ -1,7 +1,5 @@
 # Cloudflare Pages runs `bundle exec jekyll build`. The site is plain static
-# files, so Jekyll only copies them to _site.
-repository: cgolden15/cgolden15.github.io   # required by jekyll-github-metadata
-
+# files, so Jekyll only copies them to _site. Theme stylesheet: see assets/css.
 exclude:
   - Gemfile
   - Gemfile.lock
